@@ -210,37 +210,37 @@ body.custom-bg .sync-btn{color:#5b21b6;}
 .sync-msg.err{color:#ef4444;}
 .sync-note{font-size:11px;color:#aaa;line-height:1.5;}
 
-/* ── Modal ── */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;display:flex;align-items:flex-end;justify-content:center;}
-.modal-overlay.hidden{display:none;}
-.modal{background:#fff;border-radius:24px 24px 0 0;padding:1.5rem 1.25rem 2rem;width:100%;max-width:480px;display:flex;flex-direction:column;gap:.9rem;max-height:88vh;overflow-y:auto;}
-.modal-title{font-size:17px;font-weight:700;color:#1a1a1a;text-align:center;}
+/* ── Modal (in-flow, not fixed) ── */
+.modal-wrap{width:100%;max-width:360px;display:none;flex-direction:column;}
+.modal-wrap.show{display:flex;}
+.modal-card{background:#fff;border-radius:20px;border:1px solid rgba(0,0,0,.1);padding:1.25rem;display:flex;flex-direction:column;gap:.85rem;box-shadow:0 4px 24px rgba(0,0,0,.14);}
+.modal-title{font-size:16px;font-weight:700;color:#1a1a1a;text-align:center;}
 .modal-row{display:flex;flex-direction:column;gap:.3rem;}
-.modal-row label{font-size:12px;font-weight:700;color:#555;letter-spacing:.04em;text-transform:uppercase;}
-.modal-row input[type=text],.modal-row input[type=number],.modal-row input[type=time],.modal-row select{width:100%;background:#f5f5f5;border:1px solid #ddd;border-radius:14px;padding:10px 14px;font-size:15px;color:#1a1a1a;outline:none;-webkit-appearance:none;font-family:inherit;}
-.modal-row input:focus,.modal-row select:focus{border-color:#7c3aed;background:#faf5ff;}
-.emoji-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;}
-.emoji-opt{font-size:22px;padding:6px;border-radius:10px;border:2px solid transparent;cursor:pointer;text-align:center;-webkit-tap-highlight-color:transparent;}
+.mlabel{font-size:11px;font-weight:700;color:#888;letter-spacing:.05em;text-transform:uppercase;}
+.modal-row input[type=text],.modal-row input[type=number],.modal-row input[type=time]{width:100%;background:#f6f6f6;border:1px solid #e0e0e0;border-radius:12px;padding:9px 13px;font-size:14px;color:#1a1a1a;outline:none;-webkit-appearance:none;font-family:inherit;}
+.modal-row input:focus{border-color:#7c3aed;background:#faf5ff;}
+.emoji-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;}
+.emoji-opt{font-size:20px;padding:5px;border-radius:9px;border:2px solid transparent;cursor:pointer;text-align:center;-webkit-tap-highlight-color:transparent;}
 .emoji-opt.sel{border-color:#7c3aed;background:#faf5ff;}
 .color-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;}
-.color-opt{height:36px;border-radius:10px;border:2px solid transparent;cursor:pointer;-webkit-tap-highlight-color:transparent;}
-.color-opt.sel{border-color:#1a1a1a;transform:scale(.92);}
+.color-opt{height:34px;border-radius:9px;border:3px solid transparent;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .1s;}
+.color-opt.sel{border-color:#1a1a1a;transform:scale(.88);}
 .modal-snd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;}
-.modal-snd-btn{padding:7px 3px;border-radius:12px;border:1px solid #ddd;font-size:11px;color:#444;cursor:pointer;text-align:center;display:flex;flex-direction:column;align-items:center;gap:2px;background:#f5f5f5;-webkit-tap-highlight-color:transparent;}
-.modal-snd-btn span{font-size:16px;}
+.modal-snd-btn{padding:6px 3px;border-radius:11px;border:1px solid #e0e0e0;font-size:11px;color:#444;cursor:pointer;text-align:center;display:flex;flex-direction:column;align-items:center;gap:2px;background:#f6f6f6;-webkit-tap-highlight-color:transparent;}
+.modal-snd-btn span{font-size:15px;}
 .modal-snd-btn.sel{background:#faf5ff;border-color:#7c3aed;color:#5b21b6;font-weight:700;}
-.modal-dur-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;}
-.modal-dur-btn{padding:8px 4px;border-radius:16px;border:1px solid #ddd;font-size:12px;color:#444;cursor:pointer;text-align:center;font-weight:500;background:#f5f5f5;-webkit-tap-highlight-color:transparent;}
+.modal-dur-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;}
+.modal-dur-btn{padding:8px 4px;border-radius:12px;border:1px solid #e0e0e0;font-size:12px;color:#444;cursor:pointer;text-align:center;font-weight:500;background:#f6f6f6;-webkit-tap-highlight-color:transparent;}
 .modal-dur-btn.sel{background:#faf5ff;border-color:#7c3aed;color:#4c1d95;font-weight:700;}
-.modal-type-row{display:flex;gap:8px;}
-.modal-type-btn{flex:1;padding:9px;border-radius:16px;border:1px solid #ddd;font-size:13px;font-weight:600;color:#666;cursor:pointer;background:#f5f5f5;-webkit-tap-highlight-color:transparent;}
+.modal-type-row{display:flex;gap:7px;}
+.modal-type-btn{flex:1;padding:8px;border-radius:12px;border:1px solid #e0e0e0;font-size:13px;font-weight:600;color:#666;cursor:pointer;background:#f6f6f6;-webkit-tap-highlight-color:transparent;}
 .modal-type-btn.sel{background:#faf5ff;border-color:#7c3aed;color:#5b21b6;}
-.modal-yt-row{display:flex;gap:6px;}
-.modal-yt-row input{flex:1;background:#f5f5f5;border:1px solid #ddd;border-radius:14px;padding:10px 14px;font-size:14px;color:#1a1a1a;outline:none;font-family:inherit;}
-.modal-btn-row{display:flex;gap:8px;margin-top:.3rem;}
-.modal-cancel{flex:1;padding:12px;border-radius:22px;border:1px solid #ddd;background:#f5f5f5;font-size:14px;font-weight:600;color:#666;cursor:pointer;}
-.modal-save{flex:1;padding:12px;border-radius:22px;border:none;background:#7c3aed;color:#fff;font-size:14px;font-weight:700;cursor:pointer;}
+.modal-btn-row{display:flex;gap:8px;margin-top:.2rem;}
+.modal-cancel{flex:1;padding:11px;border-radius:22px;border:1px solid #e0e0e0;background:#f6f6f6;font-size:14px;font-weight:600;color:#666;cursor:pointer;}
+.modal-save{flex:1;padding:11px;border-radius:22px;border:none;background:#7c3aed;color:#fff;font-size:14px;font-weight:700;cursor:pointer;}
 .modal-note{font-size:11px;color:#aaa;text-align:center;}
+.modal-cust-dur{display:flex;align-items:center;gap:8px;margin-top:5px;}
+.modal-cust-dur input{width:64px;background:#f6f6f6;border:1px solid #e0e0e0;border-radius:10px;padding:6px 10px;font-size:14px;text-align:center;outline:none;font-family:inherit;}
 </style>
 </head>
 <body class="focus-bg">
@@ -251,67 +251,7 @@ body.custom-bg .sync-btn{color:#5b21b6;}
   <g id="cdd" opacity="0" style="transition:opacity 1s;"><circle cx="50" cy="60" r="18" fill="rgba(167,139,250,.3)"/><circle cx="350" cy="110" r="26" fill="rgba(167,139,250,.22)"/><circle cx="20" cy="340" r="14" fill="rgba(167,139,250,.2)"/><circle cx="380" cy="410" r="20" fill="rgba(167,139,250,.25)"/><circle cx="200" cy="25" r="7" fill="rgba(255,255,255,.3)"/><circle cx="310" cy="55" r="5" fill="rgba(255,255,255,.25)"/></g>
 </svg>
 
-<!-- MODAL -->
-<div class="modal-overlay hidden" id="modalOverlay" onclick="closeModalIfBg(event)">
-<div class="modal" id="modal">
-  <div class="modal-title" id="modalTitle">create custom mode</div>
-
-  <div class="modal-row">
-    <label>mode name</label>
-    <input type="text" id="mName" placeholder="e.g. Deep Work, Evening Wind-down..." maxlength="30"/>
-  </div>
-
-  <div class="modal-row">
-    <label>icon</label>
-    <div class="emoji-grid" id="emojiGrid"></div>
-  </div>
-
-  <div class="modal-row">
-    <label>background colour</label>
-    <div class="color-grid" id="colorGrid"></div>
-  </div>
-
-  <div class="modal-row">
-    <label>timer type</label>
-    <div class="modal-type-row">
-      <button class="modal-type-btn sel" id="mtAlarm" onclick="setMType('alarm')">alarm time</button>
-      <button class="modal-type-btn" id="mtTimer" onclick="setMType('timer')">countdown</button>
-    </div>
-  </div>
-
-  <div class="modal-row" id="mAlarmRow">
-    <label>alarm time</label>
-    <input type="time" id="mAlarmTime"/>
-  </div>
-
-  <div class="modal-row" id="mTimerRow" style="display:none;">
-    <label>duration</label>
-    <div class="modal-dur-grid" id="mDurGrid"></div>
-    <div style="display:none;align-items:center;gap:8px;margin-top:6px;" id="mCustomDurRow">
-      <input type="number" id="mCustomMin" min="1" max="600" value="30" style="width:70px;background:#f5f5f5;border:1px solid #ddd;border-radius:12px;padding:8px 10px;font-size:15px;color:#1a1a1a;outline:none;text-align:center;font-family:inherit;"/>
-      <label style="font-size:13px;color:#666;">minutes</label>
-    </div>
-  </div>
-
-  <div class="modal-row">
-    <label>ambient sound</label>
-    <div class="modal-snd-grid" id="mSndGrid"></div>
-  </div>
-
-  <div class="modal-row">
-    <label>youtube music (optional)</label>
-    <div class="modal-yt-row">
-      <input type="text" id="mYtUrl" placeholder="paste YouTube link..."/>
-    </div>
-    <div class="modal-note" style="margin-top:4px;">leave blank to use device files or no music</div>
-  </div>
-
-  <div class="modal-btn-row">
-    <button class="modal-cancel" onclick="closeModal()">cancel</button>
-    <button class="modal-save" onclick="saveMode()">save mode</button>
-  </div>
-</div>
-</div>
+<!-- MODAL removed from here — now inline after modes panel -->
 
 <div class="chip focus-chip" id="chip">focus session</div>
 
@@ -397,6 +337,57 @@ body.custom-bg .sync-btn{color:#5b21b6;}
       <button class="modes-add-btn" onclick="openModal()">+ new mode</button>
     </div>
     <div class="modes-list" id="modesList"></div>
+  </div>
+
+  <!-- IN-FLOW MODAL -->
+  <div class="modal-wrap" id="modalWrap">
+  <div class="modal-card">
+    <div class="modal-title">create custom mode</div>
+    <div class="modal-row">
+      <div class="mlabel">mode name</div>
+      <input type="text" id="mName" placeholder="e.g. Deep Work, Evening Wind-down..." maxlength="30"/>
+    </div>
+    <div class="modal-row">
+      <div class="mlabel">icon</div>
+      <div class="emoji-grid" id="emojiGrid"></div>
+    </div>
+    <div class="modal-row">
+      <div class="mlabel">background colour</div>
+      <div class="color-grid" id="colorGrid"></div>
+    </div>
+    <div class="modal-row">
+      <div class="mlabel">timer type</div>
+      <div class="modal-type-row">
+        <button class="modal-type-btn sel" id="mtAlarm" onclick="setMType('alarm')">alarm time</button>
+        <button class="modal-type-btn" id="mtTimer" onclick="setMType('timer')">countdown</button>
+      </div>
+    </div>
+    <div class="modal-row" id="mAlarmRow">
+      <div class="mlabel">alarm time</div>
+      <input type="time" id="mAlarmTime"/>
+    </div>
+    <div class="modal-row" id="mTimerRow" style="display:none;">
+      <div class="mlabel">duration</div>
+      <div class="modal-dur-grid" id="mDurGrid"></div>
+      <div class="modal-cust-dur" id="mCustomDurRow" style="display:none;">
+        <input type="number" id="mCustomMin" min="1" max="600" value="30"/>
+        <label style="font-size:13px;color:#666;">minutes</label>
+      </div>
+    </div>
+    <div class="modal-row">
+      <div class="mlabel">ambient sound</div>
+      <div class="modal-snd-grid" id="mSndGrid"></div>
+    </div>
+    <div class="modal-row">
+      <div class="mlabel">youtube music (optional)</div>
+      <input type="text" id="mYtUrl" placeholder="paste YouTube link..."/>
+      <div class="modal-note" style="margin-top:4px;">leave blank for device files or no music</div>
+    </div>
+    <div class="modal-btn-row">
+      <button class="modal-cancel" onclick="closeModal()">cancel</button>
+      <button class="modal-save" onclick="saveMode()">save mode</button>
+    </div>
+  </div>
   </div>
 
   <!-- SYNC PANEL -->
@@ -733,12 +724,15 @@ function openModal(){
   document.getElementById('mName').value='';
   document.getElementById('mAlarmTime').value='';
   document.getElementById('mYtUrl').value='';
+  document.getElementById('mCustomMin').value='30';
   buildModalEmojis();buildModalColors();buildModalSounds();buildModalDurs();
   setMType('alarm');
-  document.getElementById('modalOverlay').classList.remove('hidden');
+  const wrap=document.getElementById('modalWrap');
+  wrap.classList.add('show');
+  setTimeout(()=>wrap.scrollIntoView({behavior:'smooth',block:'start'}),50);
 }
-function closeModal(){document.getElementById('modalOverlay').classList.add('hidden');}
-function closeModalIfBg(e){if(e.target===document.getElementById('modalOverlay'))closeModal();}
+function closeModal(){document.getElementById('modalWrap').classList.remove('show');}
+function closeModalIfBg(e){}
 
 function buildModalEmojis(){
   const g=document.getElementById('emojiGrid');g.innerHTML='';
