@@ -16,29 +16,35 @@ html,body{min-height:100%;width:100%;}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;display:flex;flex-direction:column;align-items:center;padding:max(env(safe-area-inset-top),1.2rem) 1rem max(env(safe-area-inset-bottom),1.2rem);gap:.85rem;overflow-y:auto;position:relative;transition:background 1s;}
 body.focus-bg{background:linear-gradient(160deg,#d8f3dc 0%,#b7e4c7 35%,#95d5b2 65%,#74c69d 100%);}
 body.break-bg{background:linear-gradient(160deg,#fff8e7 0%,#ffe0a3 35%,#ffcc70 65%,#ffb830 100%);}
+body.custom-bg{background:linear-gradient(160deg,#ede9fe 0%,#c4b5fd 35%,#a78bfa 65%,#7c3aed 100%);}
 .bg-deco{position:fixed;inset:0;pointer-events:none;z-index:0;width:100%;height:100%;}
 body>*:not(.bg-deco){position:relative;z-index:1;}
 .chip{font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:4px 14px;border-radius:20px;font-weight:600;}
 .focus-chip{color:#2d6a4f;background:rgba(255,255,255,.5);}
 .break-chip{color:#7a3e00;background:rgba(255,255,255,.6);}
-.tog{display:flex;background:rgba(255,255,255,.3);border-radius:24px;padding:3px;gap:2px;}
-.tog button{padding:6px 18px;border-radius:20px;border:none;font-size:13px;cursor:pointer;background:transparent;font-weight:600;color:#555;-webkit-tap-highlight-color:transparent;}
+.custom-chip{color:#4c1d95;background:rgba(255,255,255,.55);}
+.tog{display:flex;background:rgba(255,255,255,.3);border-radius:24px;padding:3px;gap:2px;flex-wrap:wrap;}
+.tog button{padding:6px 14px;border-radius:20px;border:none;font-size:12px;cursor:pointer;background:transparent;font-weight:600;color:#555;-webkit-tap-highlight-color:transparent;white-space:nowrap;}
 body.focus-bg .tog button.active{background:#2d6a4f;color:#fff;}
 body.break-bg .tog button.active{background:#d97706;color:#fff;}
+body.custom-bg .tog button.active{background:#7c3aed;color:#fff;}
 .task-lbl{font-size:18px;font-weight:500;text-align:center;min-height:1.4em;transition:color .8s;padding:0 .5rem;}
 body.focus-bg .task-lbl{color:#2d3a2e;}
 body.break-bg .task-lbl{color:#7a3e00;}
+body.custom-bg .task-lbl{color:#2e1065;}
 .task-row{display:flex;align-items:center;gap:8px;width:100%;max-width:360px;}
 .task-row input{flex:1;background:rgba(255,255,255,.55);border:1px solid rgba(0,0,0,.14);border-radius:24px;padding:8px 16px;font-size:15px;color:#2d3a2e;outline:none;-webkit-appearance:none;}
 .task-row input::placeholder{color:#999;}
 .task-row button{border-radius:20px;padding:8px 14px;font-size:13px;cursor:pointer;font-weight:600;border:1px solid rgba(0,0,0,.14);}
 body.focus-bg .task-row button{background:rgba(45,106,79,.15);color:#2d6a4f;}
 body.break-bg .task-row button{background:rgba(217,119,6,.15);color:#92400e;}
+body.custom-bg .task-row button{background:rgba(124,58,237,.15);color:#5b21b6;}
 .ring-wrap{position:relative;display:flex;align-items:center;justify-content:center;margin:.1rem 0;}
 .ring-svg{transform:rotate(-90deg);}
 .ring-bg{stroke:rgba(255,255,255,.32);stroke-width:8;}
 body.focus-bg .ring-bg{fill:rgba(255,255,255,.2);}
 body.break-bg .ring-bg{fill:rgba(255,255,255,.28);}
+body.custom-bg .ring-bg{fill:rgba(255,255,255,.25);}
 .ring-track{fill:none;stroke:rgba(255,255,255,.18);stroke-width:8;}
 .ring-prog{fill:none;stroke:#fff;stroke-width:8;stroke-linecap:round;transition:stroke-dashoffset 1s linear,stroke .5s;}
 .t-big{font-size:clamp(34px,10vw,50px);font-weight:300;color:#fff;letter-spacing:-2px;font-variant-numeric:tabular-nums;}
@@ -46,22 +52,27 @@ body.break-bg .ring-bg{fill:rgba(255,255,255,.28);}
 .qcard{max-width:360px;text-align:center;border:1px solid rgba(255,255,255,.5);border-radius:16px;padding:.6rem 1rem;width:100%;}
 body.focus-bg .qcard{background:rgba(255,255,255,.38);}
 body.break-bg .qcard{background:rgba(255,255,255,.5);}
+body.custom-bg .qcard{background:rgba(255,255,255,.4);}
 .qcard p{font-size:13px;line-height:1.65;font-style:italic;}
 body.focus-bg .qcard p{color:#2d3a2e;}
 body.break-bg .qcard p{color:#78350f;}
+body.custom-bg .qcard p{color:#2e1065;}
 .sec{width:100%;max-width:360px;display:flex;flex-direction:column;gap:.6rem;}
 .row{display:flex;align-items:center;gap:8px;}
 .row label{font-size:13px;white-space:nowrap;min-width:80px;font-weight:600;}
 body.focus-bg .row label{color:#2d6a4f;}
 body.break-bg .row label{color:#92400e;}
+body.custom-bg .row label{color:#5b21b6;}
 .row input[type=time]{flex:1;background:rgba(255,255,255,.55);border:1px solid rgba(0,0,0,.14);border-radius:24px;padding:8px 14px;font-size:15px;color:#2d3a2e;outline:none;-webkit-appearance:none;}
 .sec-lbl{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;}
 body.focus-bg .sec-lbl{color:#4a5e4b;}
 body.break-bg .sec-lbl{color:#92400e;}
+body.custom-bg .sec-lbl{color:#5b21b6;}
 .dur-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;}
 .dur-btn{padding:9px 4px;border-radius:20px;border:1px solid rgba(0,0,0,.12);font-size:13px;color:#444;cursor:pointer;text-align:center;font-weight:500;background:rgba(255,255,255,.35);-webkit-tap-highlight-color:transparent;}
 body.focus-bg .dur-btn.active{background:rgba(45,106,79,.25);border-color:#2d6a4f;color:#1b4332;font-weight:700;}
 body.break-bg .dur-btn.active{background:rgba(217,119,6,.25);border-color:#d97706;color:#78350f;font-weight:700;}
+body.custom-bg .dur-btn.active{background:rgba(124,58,237,.25);border-color:#7c3aed;color:#4c1d95;font-weight:700;}
 .custom-dur{display:flex;align-items:center;gap:8px;}
 .custom-dur input{width:64px;background:rgba(255,255,255,.6);border:1px solid rgba(0,0,0,.14);border-radius:12px;padding:6px 10px;font-size:15px;color:#2d3a2e;outline:none;text-align:center;-webkit-appearance:none;}
 .custom-dur label{font-size:13px;color:#666;}
@@ -70,18 +81,22 @@ body.break-bg .dur-btn.active{background:rgba(217,119,6,.25);border-color:#d9770
 .snd-btn span{font-size:17px;}
 body.focus-bg .snd-btn.active{background:rgba(45,106,79,.25);border-color:#2d6a4f;color:#1b4332;font-weight:700;}
 body.break-bg .snd-btn.active{background:rgba(217,119,6,.25);border-color:#d97706;color:#78350f;font-weight:700;}
+body.custom-bg .snd-btn.active{background:rgba(124,58,237,.25);border-color:#7c3aed;color:#4c1d95;font-weight:700;}
 .vol-row{display:flex;align-items:center;gap:8px;}
 .vol-row label{font-size:12px;color:#555;white-space:nowrap;font-weight:500;}
 .vol-row input[type=range]{flex:1;}
 body.focus-bg .vol-row input{accent-color:#2d6a4f;}
 body.break-bg .vol-row input{accent-color:#d97706;}
+body.custom-bg .vol-row input{accent-color:#7c3aed;}
 .music-panel{width:100%;border-radius:16px;border:1px solid rgba(255,255,255,.5);overflow:hidden;}
 body.focus-bg .music-panel{background:rgba(255,255,255,.38);}
 body.break-bg .music-panel{background:rgba(255,255,255,.48);}
+body.custom-bg .music-panel{background:rgba(255,255,255,.42);}
 .music-tabs{display:flex;border-bottom:1px solid rgba(0,0,0,.08);}
 .mtab{flex:1;padding:9px;border:none;background:transparent;font-size:12px;font-weight:600;cursor:pointer;color:#888;-webkit-tap-highlight-color:transparent;}
 body.focus-bg .mtab.active{color:#2d6a4f;background:rgba(45,106,79,.1);}
 body.break-bg .mtab.active{color:#92400e;background:rgba(217,119,6,.1);}
+body.custom-bg .mtab.active{color:#5b21b6;background:rgba(124,58,237,.1);}
 .mpanel{display:none;padding:.7rem;flex-direction:column;gap:.5rem;}
 .mpanel.show{display:flex;}
 .file-drop{border:1.5px dashed rgba(0,0,0,.2);border-radius:12px;padding:1rem;text-align:center;cursor:pointer;background:rgba(255,255,255,.3);}
@@ -90,16 +105,21 @@ body.break-bg .mtab.active{color:#92400e;background:rgba(217,119,6,.1);}
 .file-drop .fi{font-size:22px;}
 .tracks-list{display:flex;flex-direction:column;gap:4px;max-height:110px;overflow-y:auto;}
 .track-item{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:10px;background:rgba(255,255,255,.4);cursor:pointer;}
-.track-item.playing{background:rgba(45,106,79,.18);}
+body.focus-bg .track-item.playing{background:rgba(45,106,79,.18);}
 body.break-bg .track-item.playing{background:rgba(217,119,6,.2);}
+body.custom-bg .track-item.playing{background:rgba(124,58,237,.2);}
 .track-name{flex:1;font-size:12px;color:#333;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .track-dur{font-size:11px;color:#888;}
 .now-playing{font-size:11px;font-style:italic;color:#555;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .player-bar{display:flex;align-items:center;gap:6px;padding:5px 0 2px;}
-.player-bar button{background:rgba(45,106,79,.18);border:1px solid rgba(45,106,79,.3);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;color:#2d6a4f;flex-shrink:0;-webkit-tap-highlight-color:transparent;}
-body.break-bg .player-bar button{background:rgba(217,119,6,.18);border-color:rgba(217,119,6,.3);color:#92400e;}
-.player-bar input[type=range]{flex:1;accent-color:#2d6a4f;}
+.player-bar button{border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;flex-shrink:0;border:1px solid rgba(0,0,0,.14);-webkit-tap-highlight-color:transparent;}
+body.focus-bg .player-bar button{background:rgba(45,106,79,.18);color:#2d6a4f;}
+body.break-bg .player-bar button{background:rgba(217,119,6,.18);color:#92400e;}
+body.custom-bg .player-bar button{background:rgba(124,58,237,.18);color:#5b21b6;}
+.player-bar input[type=range]{flex:1;}
+body.focus-bg .player-bar input{accent-color:#2d6a4f;}
 body.break-bg .player-bar input{accent-color:#d97706;}
+body.custom-bg .player-bar input{accent-color:#7c3aed;}
 .ptime{font-size:11px;color:#666;white-space:nowrap;min-width:72px;text-align:right;}
 .yt-input-row{display:flex;gap:6px;}
 .yt-input-row input{flex:1;background:rgba(255,255,255,.6);border:1px solid rgba(0,0,0,.14);border-radius:20px;padding:8px 12px;font-size:13px;color:#333;outline:none;-webkit-appearance:none;}
@@ -109,31 +129,204 @@ body.break-bg .player-bar input{accent-color:#d97706;}
 .yt-pick-btn{padding:7px;border-radius:12px;border:1px solid rgba(0,0,0,.12);background:rgba(255,255,255,.4);font-size:11px;cursor:pointer;color:#333;-webkit-tap-highlight-color:transparent;}
 .yt-frame{border-radius:10px;overflow:hidden;background:#000;aspect-ratio:16/9;width:100%;}
 .yt-frame iframe{width:100%;height:100%;border:none;display:block;}
-.btn-main{width:100%;padding:13px;border-radius:28px;color:#fff;border:none;font-size:15px;font-weight:700;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+.btn-main{width:100%;padding:13px;border-radius:28px;color:#fff;border:none;font-size:15px;font-weight:700;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .1s;}
 body.focus-bg .btn-main{background:#2d6a4f;}
 body.break-bg .btn-main{background:#d97706;}
+body.custom-bg .btn-main{background:#7c3aed;}
 .btn-main:active{transform:scale(.98);}
 .btn-row{display:flex;gap:8px;}
 .btn-ghost{flex:1;padding:11px;border-radius:24px;background:rgba(255,255,255,.42);border:1px solid rgba(0,0,0,.12);font-size:13px;cursor:pointer;font-weight:600;-webkit-tap-highlight-color:transparent;}
 body.focus-bg .btn-ghost{color:#2d6a4f;}
 body.break-bg .btn-ghost{color:#92400e;}
+body.custom-bg .btn-ghost{color:#5b21b6;}
 .bar-wrap{width:100%;max-width:360px;height:3px;background:rgba(255,255,255,.3);border-radius:2px;overflow:hidden;}
 .bar{height:100%;background:#fff;border-radius:2px;transition:width 1s linear;}
 .done-msg{font-size:16px;font-weight:600;text-align:center;}
 body.focus-bg .done-msg{color:#2d3a2e;}
 body.break-bg .done-msg{color:#78350f;}
+body.custom-bg .done-msg{color:#2e1065;}
+
+/* ── Custom Modes ── */
+.modes-panel{width:100%;max-width:360px;border-radius:16px;border:1px solid rgba(255,255,255,.5);overflow:hidden;}
+body.focus-bg .modes-panel{background:rgba(255,255,255,.38);}
+body.break-bg .modes-panel{background:rgba(255,255,255,.48);}
+body.custom-bg .modes-panel{background:rgba(255,255,255,.42);}
+.modes-header{display:flex;align-items:center;justify-content:space-between;padding:.6rem .8rem;border-bottom:1px solid rgba(0,0,0,.07);}
+.modes-title{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;}
+body.focus-bg .modes-title{color:#4a5e4b;}
+body.break-bg .modes-title{color:#92400e;}
+body.custom-bg .modes-title{color:#5b21b6;}
+.modes-add-btn{font-size:11px;font-weight:700;border:none;border-radius:16px;padding:4px 12px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+body.focus-bg .modes-add-btn{background:rgba(45,106,79,.2);color:#2d6a4f;}
+body.break-bg .modes-add-btn{background:rgba(217,119,6,.2);color:#92400e;}
+body.custom-bg .modes-add-btn{background:rgba(124,58,237,.2);color:#5b21b6;}
+.modes-list{display:flex;flex-direction:column;gap:0;}
+.mode-item{display:flex;align-items:center;gap:8px;padding:.55rem .8rem;border-bottom:1px solid rgba(0,0,0,.05);cursor:pointer;transition:background .15s;-webkit-tap-highlight-color:transparent;}
+.mode-item:last-child{border-bottom:none;}
+.mode-item:hover{background:rgba(255,255,255,.3);}
+.mode-item.active-mode{background:rgba(255,255,255,.35);}
+.mode-emoji{font-size:20px;flex-shrink:0;}
+.mode-info{flex:1;min-width:0;}
+.mode-name{font-size:13px;font-weight:600;color:#333;}
+.mode-meta{font-size:11px;color:#888;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.mode-actions{display:flex;gap:4px;flex-shrink:0;}
+.mode-del-btn{font-size:11px;border:none;background:rgba(220,38,38,.12);color:#dc2626;border-radius:10px;padding:3px 8px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+.modes-empty{padding:1rem;text-align:center;font-size:12px;color:#999;font-style:italic;}
+
+/* ── Sync Panel ── */
+.sync-panel{width:100%;max-width:360px;border-radius:16px;border:1px solid rgba(255,255,255,.5);overflow:hidden;}
+body.focus-bg .sync-panel{background:rgba(255,255,255,.38);}
+body.break-bg .sync-panel{background:rgba(255,255,255,.48);}
+body.custom-bg .sync-panel{background:rgba(255,255,255,.42);}
+.sync-header{display:flex;align-items:center;justify-content:space-between;padding:.6rem .8rem;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+.sync-header-left{display:flex;align-items:center;gap:6px;}
+.sync-title{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;}
+body.focus-bg .sync-title{color:#4a5e4b;}
+body.break-bg .sync-title{color:#92400e;}
+body.custom-bg .sync-title{color:#5b21b6;}
+.sync-status-dot{width:8px;height:8px;border-radius:50%;background:#ccc;flex-shrink:0;}
+.sync-status-dot.connected{background:#22c55e;}
+.sync-status-dot.syncing{background:#f59e0b;animation:pulse-dot 1s infinite;}
+.sync-status-dot.error{background:#ef4444;}
+@keyframes pulse-dot{0%,100%{opacity:1;}50%{opacity:.3;}}
+.sync-chevron{font-size:12px;color:#999;transition:transform .2s;}
+.sync-chevron.open{transform:rotate(180deg);}
+.sync-body{display:none;padding:.7rem .8rem;flex-direction:column;gap:.6rem;border-top:1px solid rgba(0,0,0,.07);}
+.sync-body.show{display:flex;}
+.sync-url-row{display:flex;gap:6px;}
+.sync-url-row input{flex:1;background:rgba(255,255,255,.6);border:1px solid rgba(0,0,0,.14);border-radius:14px;padding:8px 12px;font-size:12px;color:#333;outline:none;font-family:inherit;}
+.sync-url-row input:focus{border-color:#7c3aed;}
+.sync-url-row button{border:none;border-radius:14px;padding:8px 14px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;color:#fff;}
+body.focus-bg .sync-url-row button{background:#2d6a4f;}
+body.break-bg .sync-url-row button{background:#d97706;}
+body.custom-bg .sync-url-row button{background:#7c3aed;}
+.sync-action-row{display:flex;gap:6px;}
+.sync-btn{flex:1;padding:8px;border-radius:14px;border:1px solid rgba(0,0,0,.12);background:rgba(255,255,255,.4);font-size:12px;font-weight:600;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+body.focus-bg .sync-btn{color:#2d6a4f;}
+body.break-bg .sync-btn{color:#92400e;}
+body.custom-bg .sync-btn{color:#5b21b6;}
+.sync-msg{font-size:11px;color:#888;text-align:center;min-height:14px;}
+.sync-msg.ok{color:#22c55e;}
+.sync-msg.err{color:#ef4444;}
+.sync-note{font-size:11px;color:#aaa;line-height:1.5;}
+
+/* ── Modal ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;display:flex;align-items:flex-end;justify-content:center;}
+.modal-overlay.hidden{display:none;}
+.modal{background:#fff;border-radius:24px 24px 0 0;padding:1.5rem 1.25rem 2rem;width:100%;max-width:480px;display:flex;flex-direction:column;gap:.9rem;max-height:88vh;overflow-y:auto;}
+.modal-title{font-size:17px;font-weight:700;color:#1a1a1a;text-align:center;}
+.modal-row{display:flex;flex-direction:column;gap:.3rem;}
+.modal-row label{font-size:12px;font-weight:700;color:#555;letter-spacing:.04em;text-transform:uppercase;}
+.modal-row input[type=text],.modal-row input[type=number],.modal-row input[type=time],.modal-row select{width:100%;background:#f5f5f5;border:1px solid #ddd;border-radius:14px;padding:10px 14px;font-size:15px;color:#1a1a1a;outline:none;-webkit-appearance:none;font-family:inherit;}
+.modal-row input:focus,.modal-row select:focus{border-color:#7c3aed;background:#faf5ff;}
+.emoji-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;}
+.emoji-opt{font-size:22px;padding:6px;border-radius:10px;border:2px solid transparent;cursor:pointer;text-align:center;-webkit-tap-highlight-color:transparent;}
+.emoji-opt.sel{border-color:#7c3aed;background:#faf5ff;}
+.color-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;}
+.color-opt{height:36px;border-radius:10px;border:2px solid transparent;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+.color-opt.sel{border-color:#1a1a1a;transform:scale(.92);}
+.modal-snd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;}
+.modal-snd-btn{padding:7px 3px;border-radius:12px;border:1px solid #ddd;font-size:11px;color:#444;cursor:pointer;text-align:center;display:flex;flex-direction:column;align-items:center;gap:2px;background:#f5f5f5;-webkit-tap-highlight-color:transparent;}
+.modal-snd-btn span{font-size:16px;}
+.modal-snd-btn.sel{background:#faf5ff;border-color:#7c3aed;color:#5b21b6;font-weight:700;}
+.modal-dur-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;}
+.modal-dur-btn{padding:8px 4px;border-radius:16px;border:1px solid #ddd;font-size:12px;color:#444;cursor:pointer;text-align:center;font-weight:500;background:#f5f5f5;-webkit-tap-highlight-color:transparent;}
+.modal-dur-btn.sel{background:#faf5ff;border-color:#7c3aed;color:#4c1d95;font-weight:700;}
+.modal-type-row{display:flex;gap:8px;}
+.modal-type-btn{flex:1;padding:9px;border-radius:16px;border:1px solid #ddd;font-size:13px;font-weight:600;color:#666;cursor:pointer;background:#f5f5f5;-webkit-tap-highlight-color:transparent;}
+.modal-type-btn.sel{background:#faf5ff;border-color:#7c3aed;color:#5b21b6;}
+.modal-yt-row{display:flex;gap:6px;}
+.modal-yt-row input{flex:1;background:#f5f5f5;border:1px solid #ddd;border-radius:14px;padding:10px 14px;font-size:14px;color:#1a1a1a;outline:none;font-family:inherit;}
+.modal-btn-row{display:flex;gap:8px;margin-top:.3rem;}
+.modal-cancel{flex:1;padding:12px;border-radius:22px;border:1px solid #ddd;background:#f5f5f5;font-size:14px;font-weight:600;color:#666;cursor:pointer;}
+.modal-save{flex:1;padding:12px;border-radius:22px;border:none;background:#7c3aed;color:#fff;font-size:14px;font-weight:700;cursor:pointer;}
+.modal-note{font-size:11px;color:#aaa;text-align:center;}
 </style>
 </head>
 <body class="focus-bg">
 
 <svg class="bg-deco" viewBox="0 0 400 860" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
   <g id="fd"><ellipse cx="30" cy="80" rx="38" ry="18" fill="rgba(45,106,79,.12)" transform="rotate(-30 30 80)"/><ellipse cx="370" cy="120" rx="44" ry="20" fill="rgba(45,106,79,.1)" transform="rotate(25 370 120)"/><ellipse cx="15" cy="360" rx="30" ry="13" fill="rgba(45,106,79,.09)" transform="rotate(-50 15 360)"/><ellipse cx="385" cy="420" rx="36" ry="15" fill="rgba(45,106,79,.1)" transform="rotate(40 385 420)"/><circle cx="120" cy="40" r="5" fill="rgba(255,255,255,.25)"/><circle cx="280" cy="65" r="4" fill="rgba(255,255,255,.2)"/></g>
-  <g id="bd" opacity="0" style="transition:opacity 1s;"><circle cx="60" cy="70" r="22" fill="rgba(251,191,36,.28)"/><circle cx="340" cy="100" r="30" fill="rgba(251,191,36,.2)"/><circle cx="30" cy="350" r="18" fill="rgba(251,191,36,.18)"/><circle cx="370" cy="430" r="24" fill="rgba(251,191,36,.22)"/><circle cx="200" cy="30" r="8" fill="rgba(255,255,255,.35)"/></g>
+  <g id="bdd" opacity="0" style="transition:opacity 1s;"><circle cx="60" cy="70" r="22" fill="rgba(251,191,36,.28)"/><circle cx="340" cy="100" r="30" fill="rgba(251,191,36,.2)"/><circle cx="30" cy="350" r="18" fill="rgba(251,191,36,.18)"/><circle cx="370" cy="430" r="24" fill="rgba(251,191,36,.22)"/><circle cx="200" cy="30" r="8" fill="rgba(255,255,255,.35)"/></g>
+  <g id="cdd" opacity="0" style="transition:opacity 1s;"><circle cx="50" cy="60" r="18" fill="rgba(167,139,250,.3)"/><circle cx="350" cy="110" r="26" fill="rgba(167,139,250,.22)"/><circle cx="20" cy="340" r="14" fill="rgba(167,139,250,.2)"/><circle cx="380" cy="410" r="20" fill="rgba(167,139,250,.25)"/><circle cx="200" cy="25" r="7" fill="rgba(255,255,255,.3)"/><circle cx="310" cy="55" r="5" fill="rgba(255,255,255,.25)"/></g>
 </svg>
 
+<!-- MODAL -->
+<div class="modal-overlay hidden" id="modalOverlay" onclick="closeModalIfBg(event)">
+<div class="modal" id="modal">
+  <div class="modal-title" id="modalTitle">create custom mode</div>
+
+  <div class="modal-row">
+    <label>mode name</label>
+    <input type="text" id="mName" placeholder="e.g. Deep Work, Evening Wind-down..." maxlength="30"/>
+  </div>
+
+  <div class="modal-row">
+    <label>icon</label>
+    <div class="emoji-grid" id="emojiGrid"></div>
+  </div>
+
+  <div class="modal-row">
+    <label>background colour</label>
+    <div class="color-grid" id="colorGrid"></div>
+  </div>
+
+  <div class="modal-row">
+    <label>timer type</label>
+    <div class="modal-type-row">
+      <button class="modal-type-btn sel" id="mtAlarm" onclick="setMType('alarm')">alarm time</button>
+      <button class="modal-type-btn" id="mtTimer" onclick="setMType('timer')">countdown</button>
+    </div>
+  </div>
+
+  <div class="modal-row" id="mAlarmRow">
+    <label>alarm time</label>
+    <input type="time" id="mAlarmTime"/>
+  </div>
+
+  <div class="modal-row" id="mTimerRow" style="display:none;">
+    <label>duration</label>
+    <div class="modal-dur-grid" id="mDurGrid"></div>
+    <div style="display:none;align-items:center;gap:8px;margin-top:6px;" id="mCustomDurRow">
+      <input type="number" id="mCustomMin" min="1" max="600" value="30" style="width:70px;background:#f5f5f5;border:1px solid #ddd;border-radius:12px;padding:8px 10px;font-size:15px;color:#1a1a1a;outline:none;text-align:center;font-family:inherit;"/>
+      <label style="font-size:13px;color:#666;">minutes</label>
+    </div>
+  </div>
+
+  <div class="modal-row">
+    <label>ambient sound</label>
+    <div class="modal-snd-grid" id="mSndGrid"></div>
+  </div>
+
+  <div class="modal-row">
+    <label>youtube music (optional)</label>
+    <div class="modal-yt-row">
+      <input type="text" id="mYtUrl" placeholder="paste YouTube link..."/>
+    </div>
+    <div class="modal-note" style="margin-top:4px;">leave blank to use device files or no music</div>
+  </div>
+
+  <div class="modal-btn-row">
+    <button class="modal-cancel" onclick="closeModal()">cancel</button>
+    <button class="modal-save" onclick="saveMode()">save mode</button>
+  </div>
+</div>
+</div>
+
 <div class="chip focus-chip" id="chip">focus session</div>
-<div class="tog"><button class="active" id="sFocus" onclick="setSess('focus')">focus</button><button id="sBreak" onclick="setSess('break')">break</button></div>
-<div class="tog"><button class="active" id="mAlarm" onclick="setMode('alarm')">alarm</button><button id="mTimer" onclick="setMode('timer')">timer</button></div>
+
+<div class="tog" id="sessToggle">
+  <button class="active" id="sFocus" onclick="setSess('focus')">focus</button>
+  <button id="sBreak" onclick="setSess('break')">break</button>
+  <div style="width:1px;background:rgba(0,0,0,.1);margin:4px 2px;"></div>
+  <span id="customModeBtns"></span>
+</div>
+
+<div class="tog">
+  <button class="active" id="mAlarmBtn" onclick="setMode('alarm')">alarm</button>
+  <button id="mTimerBtn" onclick="setMode('timer')">timer</button>
+</div>
+
 <div class="task-lbl" id="taskLbl">what are you working on?</div>
 <div class="task-row"><input type="text" id="taskIn" placeholder="e.g. reading, deep work..." maxlength="60"/><button onclick="setTask()">set</button></div>
 
@@ -187,7 +380,7 @@ body.break-bg .done-msg{color:#78350f;}
       </div>
     </div>
     <div class="mpanel" id="panYT">
-      <div class="yt-note">paste a YouTube link and it plays inside the app. works with playlists too.</div>
+      <div class="yt-note">paste a YouTube link and it plays inside the app.</div>
       <div class="yt-input-row"><input type="text" id="ytUrl" placeholder="https://youtube.com/watch?v=..."/><button onclick="loadYT()">load</button></div>
       <div id="ytSug">
         <div class="sec-lbl" style="margin:.3rem 0 .3rem;">quick picks</div>
@@ -196,6 +389,40 @@ body.break-bg .done-msg{color:#78350f;}
       <div id="ytWrap" style="display:none;" class="yt-frame"></div>
     </div>
   </div>
+
+  <!-- SAVED MODES -->
+  <div class="modes-panel">
+    <div class="modes-header">
+      <span class="modes-title">my modes</span>
+      <button class="modes-add-btn" onclick="openModal()">+ new mode</button>
+    </div>
+    <div class="modes-list" id="modesList"></div>
+  </div>
+
+  <!-- SYNC PANEL -->
+  <div class="sync-panel">
+    <div class="sync-header" onclick="toggleSyncPanel()">
+      <div class="sync-header-left">
+        <div class="sync-status-dot" id="syncDot"></div>
+        <span class="sync-title">sync across devices</span>
+      </div>
+      <span class="sync-chevron" id="syncChevron">▾</span>
+    </div>
+    <div class="sync-body" id="syncBody">
+      <div class="sync-note">paste your Google Apps Script URL to sync modes across all your devices automatically.</div>
+      <div class="sync-url-row">
+        <input type="text" id="syncUrl" placeholder="https://script.google.com/macros/s/..."/>
+        <button onclick="connectSync()">connect</button>
+      </div>
+      <div class="sync-action-row" id="syncActions" style="display:none;">
+        <button class="sync-btn" onclick="pushModes()">⬆ push to cloud</button>
+        <button class="sync-btn" onclick="pullModes()">⬇ pull from cloud</button>
+      </div>
+      <div class="sync-msg" id="syncMsg"></div>
+      <div class="sync-note"><a href="#" onclick="showSyncInstructions();return false;" style="color:#7c3aed;font-weight:600;">how to get your URL →</a></div>
+    </div>
+  </div>
+
   <button class="btn-main" id="btnStart" onclick="startTimer()">start focus</button>
 </div>
 
@@ -206,26 +433,285 @@ body.break-bg .done-msg{color:#78350f;}
 
 <script>
 const FQ=["Stillness is where focus blooms.","One breath. One task. One moment.","The river flows with intention.","Deep work is a gift you give yourself.","Every minute you stay is a seed planted.","Calm mind, clear work.","You showed up. That's the hardest part.","Let the world wait. This time is yours.","Gentle focus is still focus.","Roots grow deeper in still water."];
-const BQ=["You earned this rest. Enjoy it!","Breathe, stretch, smile — you did great!","Rest is part of the work.","Your brain is recharging right now.","Wiggle fingers, roll shoulders, smile!","A little rest makes the next session sweeter.","Look away from the screen. See something green!","Sip some water. You've earned it!"];
+const BQ=["You earned this rest. Enjoy it!","Breathe, stretch, smile — you did great!","Rest is part of the work.","Your brain is recharging right now.","Wiggle fingers, roll shoulders, smile!","A little rest makes the next session sweeter.","Look away from screen. See something green!","Sip some water. You've earned it!"];
+const CQ=["Your custom session is running.","You set this up just for yourself.","Every session is progress.","Flow at your own pace.","You designed this time. Own it."];
 const FS=[{s:'rain',e:'🌧',l:'rain'},{s:'forest',e:'🌿',l:'forest'},{s:'stream',e:'💧',l:'stream'},{s:'ocean',e:'🌊',l:'ocean'},{s:'wind',e:'🍃',l:'wind'},{s:'fire',e:'🔥',l:'fire'},{s:'brown',e:'〰',l:'brown noise'},{s:'off',e:'—',l:'off'}];
 const BS=[{s:'birds',e:'🐦',l:'birds'},{s:'cafe',e:'☕',l:'café'},{s:'chimes',e:'🎐',l:'chimes'},{s:'bubbles',e:'🫧',l:'bubbles'},{s:'music',e:'🎵',l:'soft music'},{s:'off',e:'—',l:'off'}];
+const ALL_SND=[...FS,...BS.filter(x=>!FS.find(f=>f.s===x.s))];
 const YTP=[{label:'lofi hip hop',url:'https://www.youtube.com/watch?v=jfKfPfyJRdk'},{label:'nature sounds',url:'https://www.youtube.com/watch?v=eKFTSSKCzWA'},{label:'study playlist',url:'https://www.youtube.com/watch?v=5qap5aO4i9A'},{label:'piano focus',url:'https://www.youtube.com/watch?v=4oStw0r33so'}];
-let total=0,rem=0,ticker=null,paused=false,qIdx=0,qTmr=null,curS='rain',ambVol=.4,mode='alarm',sess='focus',selDur=25;
+const EMOJIS=['📚','💻','✍️','🎯','🧘','🌙','☀️','🏃','🎨','🎵','🍵','💪','🌱','🔬','📝','✨','🧠','💡','🌿','🔥'];
+const COLORS=[
+  {label:'forest',val:'linear-gradient(160deg,#d8f3dc 0%,#b7e4c7 35%,#95d5b2 65%,#74c69d 100%)',bg:'focus-bg'},
+  {label:'amber',val:'linear-gradient(160deg,#fff8e7 0%,#ffe0a3 35%,#ffcc70 65%,#ffb830 100%)',bg:'break-bg'},
+  {label:'violet',val:'linear-gradient(160deg,#ede9fe 0%,#c4b5fd 35%,#a78bfa 65%,#7c3aed 100%)',bg:'custom-bg'},
+  {label:'ocean',val:'linear-gradient(160deg,#e0f2fe 0%,#bae6fd 35%,#7dd3fc 65%,#0ea5e9 100%)',bg:'custom-bg'},
+  {label:'rose',val:'linear-gradient(160deg,#fff1f2 0%,#fecdd3 35%,#fda4af 65%,#e11d48 100%)',bg:'custom-bg'},
+  {label:'peach',val:'linear-gradient(160deg,#fff7ed 0%,#fed7aa 35%,#fdba74 65%,#ea580c 100%)',bg:'custom-bg'},
+  {label:'slate',val:'linear-gradient(160deg,#f1f5f9 0%,#cbd5e1 35%,#94a3b8 65%,#475569 100%)',bg:'custom-bg'},
+  {label:'midnight',val:'linear-gradient(160deg,#1e1b4b 0%,#312e81 35%,#3730a3 65%,#4338ca 100%)',bg:'custom-bg'},
+];
+
+let total=0,rem=0,ticker=null,paused=false,qIdx=0,qTmr=null;
+let curS='rain',ambVol=.4,mode='alarm',sess='focus',selDur=25;
+let activeCustomMode=null;
 let ac=null,mgain=null,nodes=[],tracks=[],curTrack=-1,audioEl=null;
 const CIRC=2*Math.PI*86;
+
+// Modal state
+let mType='alarm',mSelEmoji='📚',mSelColor=0,mSelSnd='rain',mSelDur=25;
+
 function pad(n){return String(n).padStart(2,'0');}
 function fmt(s){const h=Math.floor(s/3600),m=Math.floor((s%3600)/60),sc=s%60;return h>0?pad(h)+':'+pad(m)+':'+pad(sc):pad(m)+':'+pad(sc);}
 function fmtS(s){return Math.floor(s/60)+':'+pad(Math.floor(s%60));}
 function setRing(f){document.getElementById('rp').style.strokeDashoffset=CIRC*(1-f);}
-function getQ(){return sess==='focus'?FQ:BQ;}
+function getQ(){return sess==='focus'?FQ:sess==='break'?BQ:CQ;}
 function cycleQ(){qIdx=(qIdx+1)%getQ().length;document.getElementById('qTxt').textContent=getQ()[qIdx];}
-function setTask(){const v=document.getElementById('taskIn').value.trim();document.getElementById('taskLbl').textContent=v||(sess==='focus'?'what are you working on?':'time to recharge!');}
+function setTask(){const v=document.getElementById('taskIn').value.trim();document.getElementById('taskLbl').textContent=v||(sess==='focus'?'what are you working on?':sess==='break'?'time to recharge!':'let\'s go!');}
 document.getElementById('taskIn').addEventListener('keydown',e=>{if(e.key==='Enter'){setTask();e.target.blur();}});
-function buildDur(){const g=document.getElementById('durGrid');g.innerHTML='';const opts=sess==='focus'?[{m:25,l:'25 min'},{m:45,l:'45 min'},{m:60,l:'60 min'},{m:90,l:'90 min'},{m:120,l:'2 hr'},{m:0,l:'custom'}]:[{m:5,l:'5 min'},{m:10,l:'10 min'},{m:15,l:'15 min'},{m:20,l:'20 min'},{m:0,l:'custom'}];opts.forEach((o,i)=>{const b=document.createElement('button');b.className='dur-btn'+(i===0?' active':'');b.dataset.m=o.m;b.textContent=o.l;b.onclick=function(){pickDur(this);};g.appendChild(b);});selDur=parseInt(opts[0].m);document.getElementById('customDur').style.display='none';}
-function buildSnd(){const g=document.getElementById('sndGrid');g.innerHTML='';const list=sess==='focus'?FS:BS;list.forEach((o,i)=>{const b=document.createElement('button');b.className='snd-btn'+(i===0?' active':'');b.dataset.s=o.s;b.innerHTML='<span>'+o.e+'</span>'+o.l;b.onclick=function(){pickSnd(this);};g.appendChild(b);});curS=list[0].s;}
+
+// ── Saved Modes Storage + Google Sheets Sync ──
+function loadModes(){try{return JSON.parse(localStorage.getItem('focusModes')||'[]');}catch(e){return[];}}
+function saveModes(m){try{localStorage.setItem('focusModes',JSON.stringify(m));}catch(e){}}
+function getSyncUrl(){return localStorage.getItem('syncUrl')||'';}
+function setSyncUrl(u){localStorage.setItem('syncUrl',u);}
+
+function setSyncStatus(state,msg){
+  const dot=document.getElementById('syncDot');
+  const msgEl=document.getElementById('syncMsg');
+  dot.className='sync-status-dot'+(state?' '+state:'');
+  if(msgEl){msgEl.textContent=msg||'';msgEl.className='sync-msg'+(state==='error'?' err':state==='connected'||state==='ok'?' ok':'');}
+}
+
+function toggleSyncPanel(){
+  const body=document.getElementById('syncBody');
+  const chev=document.getElementById('syncChevron');
+  const open=body.classList.toggle('show');
+  chev.classList.toggle('open',open);
+  if(open){
+    const saved=getSyncUrl();
+    if(saved){document.getElementById('syncUrl').value=saved;document.getElementById('syncActions').style.display='flex';}
+    updateSyncDot();
+  }
+}
+
+function updateSyncDot(){
+  const u=getSyncUrl();
+  setSyncStatus(u?'connected':'','');
+}
+
+function onSyncUrlInput(){
+  const v=document.getElementById('syncUrl').value.trim();
+  if(!v){document.getElementById('syncActions').style.display='none';setSyncStatus('','');}
+}
+
+function connectSync(){
+  const u=document.getElementById('syncUrl').value.trim();
+  if(!u){setSyncStatus('error','Please paste your Apps Script URL first.');return;}
+  if(!u.includes('script.google.com')){setSyncStatus('error','That doesn\'t look like an Apps Script URL.');return;}
+  setSyncStatus('syncing','Testing connection...');
+  fetch(u)
+    .then(r=>r.text())
+    .then(text=>{
+      JSON.parse(text); // validate it's JSON
+      setSyncUrl(u);
+      document.getElementById('syncActions').style.display='flex';
+      setSyncStatus('connected','Connected! Pull to load your cloud modes.');
+    })
+    .catch(()=>{
+      setSyncStatus('error','Could not reach that URL. Check it\'s deployed as "Anyone" access.');
+    });
+}
+
+async function pushModes(){
+  const u=getSyncUrl();
+  if(!u){setSyncStatus('error','Not connected yet.');return;}
+  setSyncStatus('syncing','Pushing to cloud...');
+  try{
+    const modes=loadModes();
+    await fetch(u,{method:'POST',body:JSON.stringify({action:'save',modes}),headers:{'Content-Type':'text/plain'}});
+    setSyncStatus('connected','Pushed '+modes.length+' mode'+(modes.length===1?'':'s')+' to cloud ✓');
+  }catch(e){setSyncStatus('error','Push failed. Check your connection.');}
+}
+
+async function pullModes(){
+  const u=getSyncUrl();
+  if(!u){setSyncStatus('error','Not connected yet.');return;}
+  setSyncStatus('syncing','Pulling from cloud...');
+  try{
+    const r=await fetch(u+'?t='+Date.now());
+    const text=await r.text();
+    const modes=JSON.parse(text||'[]');
+    if(!Array.isArray(modes))throw new Error('bad data');
+    saveModes(modes);
+    renderModesList();renderCustomModeBtns();
+    setSyncStatus('connected','Pulled '+modes.length+' mode'+(modes.length===1?'':'s')+' from cloud ✓');
+  }catch(e){setSyncStatus('error','Pull failed. Check your connection.');}
+}
+
+function showSyncInstructions(){
+  alert(
+    'SETUP GUIDE\n\n'+
+    '1. Go to sheets.google.com → create a blank sheet\n'+
+    '2. In the sheet: Extensions → Apps Script\n'+
+    '3. Delete all code and paste the script from the README (see below)\n'+
+    '4. Click Save, then Deploy → New deployment\n'+
+    '5. Type: Web app | Execute as: Me | Access: Anyone\n'+
+    '6. Click Deploy → Authorize → copy the Web app URL\n'+
+    '7. Paste that URL here and click Connect\n\n'+
+    'APPS SCRIPT CODE:\n\n'+
+    'function doPost(e){\n'+
+    '  const s=SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();\n'+
+    '  const d=JSON.parse(e.postData.contents);\n'+
+    '  if(d.action==="save"){s.clearContents();s.getRange(1,1).setValue(JSON.stringify(d.modes));}\n'+
+    '  return ContentService.createTextOutput(JSON.stringify({ok:true})).setMimeType(ContentService.MimeType.JSON);\n'+
+    '}\n'+
+    'function doGet(e){\n'+
+    '  const s=SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();\n'+
+    '  const v=s.getRange(1,1).getValue();\n'+
+    '  return ContentService.createTextOutput(v||"[]").setMimeType(ContentService.MimeType.JSON);\n'+
+    '}'
+  );
+}
+
+// Auto-pull on load if URL is saved
+window.addEventListener('load',()=>{
+  const u=getSyncUrl();
+  if(u){
+    document.getElementById('syncUrl').value=u;
+    document.getElementById('syncActions').style.display='flex';
+    updateSyncDot();
+    pullModes();
+  }
+});
+
+function buildDur(){
+  const g=document.getElementById('durGrid');g.innerHTML='';
+  const opts=sess==='focus'?[{m:25,l:'25 min'},{m:45,l:'45 min'},{m:60,l:'60 min'},{m:90,l:'90 min'},{m:120,l:'2 hr'},{m:0,l:'custom'}]:[{m:5,l:'5 min'},{m:10,l:'10 min'},{m:15,l:'15 min'},{m:20,l:'20 min'},{m:0,l:'custom'}];
+  opts.forEach((o,i)=>{const b=document.createElement('button');b.className='dur-btn'+(i===0?' active':'');b.dataset.m=o.m;b.textContent=o.l;b.onclick=function(){pickDur(this);};g.appendChild(b);});
+  selDur=parseInt(opts[0].m);document.getElementById('customDur').style.display='none';
+}
+function buildSnd(){
+  const g=document.getElementById('sndGrid');g.innerHTML='';
+  const list=sess==='focus'?FS:sess==='break'?BS:ALL_SND;
+  list.forEach((o,i)=>{const b=document.createElement('button');b.className='snd-btn'+(i===0?' active':'');b.dataset.s=o.s;b.innerHTML='<span>'+o.e+'</span>'+o.l;b.onclick=function(){pickSnd(this);};g.appendChild(b);});
+  curS=list[0].s;
+}
 function buildYTP(){const g=document.getElementById('ytPicks');g.innerHTML='';YTP.forEach(p=>{const b=document.createElement('button');b.className='yt-pick-btn';b.textContent=p.label;b.onclick=()=>{document.getElementById('ytUrl').value=p.url;loadYT();};g.appendChild(b);});}
-function setSess(s){sess=s;const iF=s==='focus';document.body.className=iF?'focus-bg':'break-bg';document.getElementById('sFocus').classList.toggle('active',iF);document.getElementById('sBreak').classList.toggle('active',!iF);document.getElementById('chip').className='chip '+(iF?'focus-chip':'break-chip');document.getElementById('chip').textContent=iF?'focus session':'break time';document.getElementById('taskLbl').textContent=iF?'what are you working on?':'time to recharge!';document.getElementById('taskIn').placeholder=iF?'e.g. reading, deep work...':'e.g. stretch, walk, snack...';document.getElementById('btnStart').textContent=iF?'start focus':'start break';document.getElementById('qTxt').textContent=getQ()[0];document.getElementById('fd').style.opacity=iF?'1':'0';document.getElementById('bd').style.opacity=iF?'0':'1';buildDur();buildSnd();stopAmb();}
-function setMode(m){mode=m;document.getElementById('mAlarm').classList.toggle('active',m==='alarm');document.getElementById('mTimer').classList.toggle('active',m==='timer');document.getElementById('alarmFields').style.display=m==='alarm'?'block':'none';document.getElementById('timerFields').style.display=m==='timer'?'flex':'none';document.getElementById('tSub').textContent='set time below';document.getElementById('tBig').textContent='--:--';setRing(1);}
+
+function renderModesList(){
+  const modes=loadModes();
+  const list=document.getElementById('modesList');
+  if(modes.length===0){list.innerHTML='<div class="modes-empty">no saved modes yet — create one!</div>';return;}
+  list.innerHTML='';
+  modes.forEach((m,i)=>{
+    const d=document.createElement('div');
+    d.className='mode-item'+(activeCustomMode===m.id?' active-mode':'');
+    const meta=m.timerType==='alarm'?'alarm: '+m.alarmTime:(m.durMin===0?m.customMin+' min':m.durMin+' min');
+    const sndLabel=ALL_SND.find(x=>x.s===m.sound)||{e:'—'};
+    d.innerHTML=`<span class="mode-emoji">${m.emoji}</span><div class="mode-info"><div class="mode-name">${m.name}</div><div class="mode-meta">${meta} · ${sndLabel.e} ${m.sound}${m.ytUrl?' · 🎵 YouTube':''}</div></div><div class="mode-actions"><button class="mode-del-btn" onclick="deleteMode('${m.id}',event)">✕</button></div>`;
+    d.onclick=()=>applyMode(m);
+    list.appendChild(d);
+  });
+}
+
+function renderCustomModeBtns(){
+  const modes=loadModes();
+  const wrap=document.getElementById('customModeBtns');
+  wrap.innerHTML='';
+  modes.forEach(m=>{
+    const b=document.createElement('button');
+    b.textContent=m.emoji+' '+m.name;
+    b.dataset.id=m.id;
+    if(activeCustomMode===m.id)b.classList.add('active');
+    b.onclick=()=>applyMode(m);
+    wrap.appendChild(b);
+  });
+}
+
+function applyMode(m){
+  activeCustomMode=m.id;
+  sess='custom_'+m.id;
+  // apply background
+  document.body.style.background=m.color;
+  document.body.className='custom-bg';
+  document.getElementById('fd').style.opacity='0';
+  document.getElementById('bdd').style.opacity='0';
+  document.getElementById('cdd').style.opacity='1';
+  document.getElementById('chip').className='chip custom-chip';
+  document.getElementById('chip').textContent=m.emoji+' '+m.name;
+  // update toggles
+  document.querySelectorAll('#sessToggle button').forEach(b=>b.classList.remove('active'));
+  const btn=document.querySelector('#customModeBtns button[data-id="'+m.id+'"]');
+  if(btn)btn.classList.add('active');
+  document.getElementById('taskLbl').textContent="let's go!";
+  document.getElementById('taskIn').placeholder='what are you doing?';
+  document.getElementById('btnStart').textContent='start session';
+  document.getElementById('qTxt').textContent=CQ[0];
+  // apply timer
+  if(m.timerType==='alarm'){
+    setMode('alarm');
+    document.getElementById('alarmIn').value=m.alarmTime||'';
+  } else {
+    setMode('timer');
+    const durMins=m.durMin===0?m.customMin:m.durMin;
+    selDur=durMins;
+    // highlight matching button or set custom
+    document.querySelectorAll('.dur-btn').forEach(b=>b.classList.remove('active'));
+    const db=[...document.querySelectorAll('.dur-btn')].find(b=>parseInt(b.dataset.m)===durMins);
+    if(db)db.classList.add('active');
+    else{document.getElementById('customDur').style.display='flex';document.getElementById('customMin').value=durMins;selDur=0;}
+  }
+  // apply sound
+  buildSnd();
+  document.querySelectorAll('.snd-btn').forEach(b=>{b.classList.toggle('active',b.dataset.s===m.sound);});
+  curS=m.sound;
+  stopAmb();
+  // apply yt if set
+  if(m.ytUrl){
+    switchTab('yt');
+    document.getElementById('ytUrl').value=m.ytUrl;
+  }
+  renderModesList();
+  renderCustomModeBtns();
+}
+
+function deleteMode(id,e){
+  e.stopPropagation();
+  const modes=loadModes().filter(m=>m.id!==id);
+  saveModes(modes);
+  if(activeCustomMode===id){setSess('focus');}
+  renderModesList();renderCustomModeBtns();
+  if(getSyncUrl())pushModes();
+}
+
+function setSess(s){
+  sess=s;activeCustomMode=null;
+  document.body.style.background='';
+  const iF=s==='focus';
+  document.body.className=iF?'focus-bg':'break-bg';
+  document.getElementById('sFocus').classList.toggle('active',iF);
+  document.getElementById('sBreak').classList.toggle('active',!iF);
+  document.querySelectorAll('#customModeBtns button').forEach(b=>b.classList.remove('active'));
+  document.getElementById('chip').className='chip '+(iF?'focus-chip':'break-chip');
+  document.getElementById('chip').textContent=iF?'focus session':'break time';
+  document.getElementById('taskLbl').textContent=iF?'what are you working on?':'time to recharge!';
+  document.getElementById('taskIn').placeholder=iF?'e.g. reading, deep work...':'e.g. stretch, walk, snack...';
+  document.getElementById('btnStart').textContent=iF?'start focus':'start break';
+  document.getElementById('qTxt').textContent=getQ()[0];
+  document.getElementById('fd').style.opacity=iF?'1':'0';
+  document.getElementById('bdd').style.opacity=iF?'0':'1';
+  document.getElementById('cdd').style.opacity='0';
+  buildDur();buildSnd();stopAmb();
+}
+function setMode(m){
+  mode=m;
+  document.getElementById('mAlarmBtn').classList.toggle('active',m==='alarm');
+  document.getElementById('mTimerBtn').classList.toggle('active',m==='timer');
+  document.getElementById('alarmFields').style.display=m==='alarm'?'block':'none';
+  document.getElementById('timerFields').style.display=m==='timer'?'flex':'none';
+  document.getElementById('tSub').textContent='set time below';
+  document.getElementById('tBig').textContent='--:--';setRing(1);
+}
 function pickDur(btn){document.querySelectorAll('.dur-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');selDur=parseInt(btn.dataset.m);document.getElementById('customDur').style.display=selDur===0?'flex':'none';}
 function pickSnd(btn){document.querySelectorAll('.snd-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');curS=btn.dataset.s;if(nodes.length){stopAmb();if(curS!=='off')startAmb();}}
 function setVol(v){ambVol=parseFloat(v);if(mgain)mgain.gain.setTargetAtTime(ambVol,ac.currentTime,.05);}
@@ -240,6 +726,68 @@ function updateSeek(){if(!audioEl||!audioEl.duration)return;document.getElementB
 function seekTo(v){if(audioEl&&audioEl.duration)audioEl.currentTime=(v/100)*audioEl.duration;}
 function setMusicVol(v){if(audioEl)audioEl.volume=parseFloat(v);}
 function loadYT(){const raw=document.getElementById('ytUrl').value.trim();if(!raw)return;let vid='',listId='';try{const u=new URL(raw);vid=u.searchParams.get('v')||'';listId=u.searchParams.get('list')||'';if(u.hostname==='youtu.be')vid=u.pathname.slice(1);}catch(e){vid=raw;}if(!vid&&!listId){alert('Could not parse YouTube URL.');return;}const isPlaylist=!!listId&&!vid;let src='https://www.youtube.com/embed/'+(isPlaylist?'videoseries':''+vid)+'?autoplay=1&rel=0';if(listId)src+='&list='+listId;const wrap=document.getElementById('ytWrap');wrap.style.display='block';wrap.innerHTML='<iframe src="'+src+'" allow="autoplay; encrypted-media" allowfullscreen></iframe>';document.getElementById('ytSug').style.display='none';}
+
+// ── Modal ──
+function openModal(){
+  mType='alarm';mSelEmoji='📚';mSelColor=0;mSelSnd='rain';mSelDur=25;
+  document.getElementById('mName').value='';
+  document.getElementById('mAlarmTime').value='';
+  document.getElementById('mYtUrl').value='';
+  buildModalEmojis();buildModalColors();buildModalSounds();buildModalDurs();
+  setMType('alarm');
+  document.getElementById('modalOverlay').classList.remove('hidden');
+}
+function closeModal(){document.getElementById('modalOverlay').classList.add('hidden');}
+function closeModalIfBg(e){if(e.target===document.getElementById('modalOverlay'))closeModal();}
+
+function buildModalEmojis(){
+  const g=document.getElementById('emojiGrid');g.innerHTML='';
+  EMOJIS.forEach(em=>{const b=document.createElement('div');b.className='emoji-opt'+(em===mSelEmoji?' sel':'');b.textContent=em;b.onclick=()=>{mSelEmoji=em;buildModalEmojis();};g.appendChild(b);});
+}
+function buildModalColors(){
+  const g=document.getElementById('colorGrid');g.innerHTML='';
+  COLORS.forEach((c,i)=>{const d=document.createElement('div');d.className='color-opt'+(i===mSelColor?' sel':'');d.style.background=c.val;d.title=c.label;d.onclick=()=>{mSelColor=i;buildModalColors();};g.appendChild(d);});
+}
+function buildModalSounds(){
+  const g=document.getElementById('mSndGrid');g.innerHTML='';
+  ALL_SND.forEach(o=>{const b=document.createElement('button');b.className='modal-snd-btn'+(o.s===mSelSnd?' sel':'');b.dataset.s=o.s;b.innerHTML='<span>'+o.e+'</span>'+o.l;b.onclick=()=>{mSelSnd=o.s;buildModalSounds();};g.appendChild(b);});
+}
+function buildModalDurs(){
+  const g=document.getElementById('mDurGrid');g.innerHTML='';
+  const opts=[{m:5,l:'5 min'},{m:10,l:'10 min'},{m:15,l:'15 min'},{m:25,l:'25 min'},{m:45,l:'45 min'},{m:60,l:'60 min'},{m:90,l:'90 min'},{m:120,l:'2 hr'},{m:0,l:'custom'}];
+  opts.forEach(o=>{const b=document.createElement('button');b.className='modal-dur-btn'+(o.m===mSelDur?' sel':'');b.dataset.m=o.m;b.textContent=o.l;b.onclick=()=>{mSelDur=o.m;buildModalDurs();document.getElementById('mCustomDurRow').style.display=mSelDur===0?'flex':'none';};g.appendChild(b);});
+}
+function setMType(t){
+  mType=t;
+  document.getElementById('mtAlarm').classList.toggle('sel',t==='alarm');
+  document.getElementById('mtTimer').classList.toggle('sel',t==='timer');
+  document.getElementById('mAlarmRow').style.display=t==='alarm'?'flex':'none';
+  document.getElementById('mTimerRow').style.display=t==='timer'?'flex':'none';
+}
+
+function saveMode(){
+  const name=document.getElementById('mName').value.trim();
+  if(!name){alert('Please give your mode a name.');return;}
+  if(mType==='alarm'&&!document.getElementById('mAlarmTime').value){alert('Please set an alarm time.');return;}
+  if(mType==='timer'&&mSelDur===0&&!document.getElementById('mCustomMin').value){alert('Please set a duration.');return;}
+  const mode={
+    id:'m_'+Date.now(),
+    name,emoji:mSelEmoji,
+    color:COLORS[mSelColor].val,
+    colorBg:COLORS[mSelColor].bg,
+    timerType:mType,
+    alarmTime:document.getElementById('mAlarmTime').value,
+    durMin:mSelDur,
+    customMin:parseInt(document.getElementById('mCustomMin').value)||30,
+    sound:mSelSnd,
+    ytUrl:document.getElementById('mYtUrl').value.trim(),
+  };
+  const modes=loadModes();modes.push(mode);saveModes(modes);
+  closeModal();renderModesList();renderCustomModeBtns();
+  if(getSyncUrl())pushModes();
+}
+
+// ── Audio ──
 function ensureAC(){if(!ac){ac=new(window.AudioContext||window.webkitAudioContext)();mgain=ac.createGain();mgain.gain.value=ambVol;mgain.connect(ac.destination);}if(ac.state==='suspended')ac.resume();}
 function an(n){nodes.push(n);}
 function stopAmb(){nodes.forEach(n=>{try{if(typeof n.stop==='function')n.stop();}catch(e){}});nodes=[];}
@@ -260,24 +808,31 @@ function startAmb(){
   if(curS==='bubbles'){function bub(){try{const t=ac.currentTime;const f=200+Math.random()*400;const o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.setValueAtTime(f,t);o.frequency.exponentialRampToValueAtTime(f*2.5,t+.15);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.07,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+.18);o.connect(g);g.connect(mgain);o.start(t);o.stop(t+.2);const tm=setTimeout(bub,100+Math.random()*400);an({stop:()=>clearTimeout(tm)});}catch(e){}}bub();bub();[150,200,250].forEach(f=>tn(f,'sine',.01));return;}
   if(curS==='music'){const notes=[261,329,392,523,659,784,1047];let ni=0;function arp(){try{const t=ac.currentTime;const f=notes[ni%notes.length];ni++;const o=ac.createOscillator(),g=ac.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.09,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+.6);o.connect(g);g.connect(mgain);o.start(t);o.stop(t+.65);const tm=setTimeout(arp,280+Math.random()*120);an({stop:()=>clearTimeout(tm)});}catch(e){}}arp();[130,196,261].forEach(f=>{const{gain}=tn(f,'sine',.015);lf(.1,gain.gain.value*.5,gain.gain);});return;}
 }
+
 function startTimer(){
   let secs=0;
   if(mode==='alarm'){const v=document.getElementById('alarmIn').value;if(!v){alert('Pick an alarm time first.');return;}const[hh,mm]=v.split(':').map(Number);const now=new Date(),alarm=new Date();alarm.setHours(hh,mm,0,0);if(alarm<=now)alarm.setDate(alarm.getDate()+1);secs=Math.round((alarm-now)/1000);}
   else{const mins=selDur===0?parseInt(document.getElementById('customMin').value)||30:selDur;secs=mins*60;}
   if(secs<=0){alert('Please set a valid time.');return;}
-  total=secs;rem=secs;document.getElementById('secSetup').style.display='none';document.getElementById('secRun').style.display='flex';document.getElementById('barWrap').style.display='block';document.getElementById('tSub').textContent='remaining';
+  // auto-load YouTube if custom mode has ytUrl
+  const modes=loadModes();
+  const cm=activeCustomMode?modes.find(m=>m.id===activeCustomMode):null;
+  if(cm&&cm.ytUrl&&!document.getElementById('ytWrap').children.length){document.getElementById('ytUrl').value=cm.ytUrl;loadYT();}
+  total=secs;rem=secs;
+  document.getElementById('secSetup').style.display='none';document.getElementById('secRun').style.display='flex';document.getElementById('barWrap').style.display='block';document.getElementById('tSub').textContent='remaining';
   const q=getQ();qIdx=Math.floor(Math.random()*q.length);document.getElementById('qTxt').textContent=q[qIdx];qTmr=setInterval(cycleQ,28000);
   startAmb();tick();ticker=setInterval(tick,1000);
   if('Notification' in window&&Notification.permission==='default')Notification.requestPermission();
 }
 function tick(){if(rem<=0){finish();return;}const f=rem/total;document.getElementById('tBig').textContent=fmt(rem);document.getElementById('bar').style.width=(f*100).toFixed(1)+'%';setRing(f);document.getElementById('rp').style.stroke=rem<300?'rgba(255,200,80,.95)':'rgba(255,255,255,1)';rem--;}
 function togglePause(){paused=!paused;document.getElementById('btnPause').textContent=paused?'resume':'pause';if(paused){clearInterval(ticker);stopAmb();if(audioEl&&!audioEl.paused)audioEl.pause();}else{startAmb();ticker=setInterval(tick,1000);if(audioEl&&tracks.length)audioEl.play().catch(()=>{});}}
-function finish(){clearInterval(ticker);clearInterval(qTmr);stopAmb();setRing(0);document.getElementById('tBig').textContent='done';document.getElementById('tSub').textContent='';const msg=sess==='focus'?'You stayed. You focused. Be proud.':'Break over — ready for the next session!';document.getElementById('qTxt').textContent=msg;document.getElementById('secRun').style.display='none';document.getElementById('doneMsg').style.display='block';document.getElementById('doneMsg').textContent=sess==='focus'?'session complete — well done!':'break over — back to it!';document.getElementById('bar').style.width='0%';playChime();if('Notification' in window&&Notification.permission==='granted')new Notification(sess==='focus'?'Focus complete!':'Break over!',{body:msg});}
-function playChime(){try{const a=new(window.AudioContext||window.webkitAudioContext)();const seq=sess==='focus'?[[528,0,.18],[660,.4,.14],[792,.8,.1],[528,1.2,.08]]:[[659,0,.15],[784,.25,.15],[1047,.5,.18],[784,.75,.12],[1047,1,.16]];seq.forEach(([f,t,g])=>{const o=a.createOscillator(),ga=a.createGain();o.connect(ga);ga.connect(a.destination);o.type='sine';o.frequency.value=f;ga.gain.setValueAtTime(0,a.currentTime+t);ga.gain.linearRampToValueAtTime(g,a.currentTime+t+.05);ga.gain.exponentialRampToValueAtTime(.001,a.currentTime+t+1.3);o.start(a.currentTime+t);o.stop(a.currentTime+t+1.4);});}catch(e){}}
+function finish(){clearInterval(ticker);clearInterval(qTmr);stopAmb();setRing(0);document.getElementById('tBig').textContent='done';document.getElementById('tSub').textContent='';const msg=sess==='focus'?'You stayed. You focused. Be proud.':sess==='break'?'Break over — ready for the next session!':'Session complete. Great work!';document.getElementById('qTxt').textContent=msg;document.getElementById('secRun').style.display='none';document.getElementById('doneMsg').style.display='block';document.getElementById('doneMsg').textContent=sess==='focus'?'session complete — well done!':sess==='break'?'break over — back to it!':'session complete!';document.getElementById('bar').style.width='0%';playChime();if('Notification' in window&&Notification.permission==='granted')new Notification('Session complete!',{body:msg});}
+function playChime(){try{const a=new(window.AudioContext||window.webkitAudioContext)();const seq=sess==='break'?[[659,0,.15],[784,.25,.15],[1047,.5,.18],[784,.75,.12],[1047,1,.16]]:[[528,0,.18],[660,.4,.14],[792,.8,.1],[528,1.2,.08]];seq.forEach(([f,t,g])=>{const o=a.createOscillator(),ga=a.createGain();o.connect(ga);ga.connect(a.destination);o.type='sine';o.frequency.value=f;ga.gain.setValueAtTime(0,a.currentTime+t);ga.gain.linearRampToValueAtTime(g,a.currentTime+t+.05);ga.gain.exponentialRampToValueAtTime(.001,a.currentTime+t+1.3);o.start(a.currentTime+t);o.stop(a.currentTime+t+1.4);});}catch(e){}}
 function resetTimer(){clearInterval(ticker);clearInterval(qTmr);stopAmb();paused=false;total=0;rem=0;document.getElementById('tBig').textContent='--:--';document.getElementById('tSub').textContent='set time below';document.getElementById('qTxt').textContent=getQ()[0];setRing(1);document.getElementById('rp').style.stroke='rgba(255,255,255,1)';document.getElementById('secSetup').style.display='flex';document.getElementById('secRun').style.display='none';document.getElementById('barWrap').style.display='none';document.getElementById('doneMsg').style.display='none';document.getElementById('bar').style.width='100%';}
+
 const now=new Date(),def=new Date(now.getTime()+25*60000);
 document.getElementById('alarmIn').value=pad(def.getHours())+':'+pad(def.getMinutes());
-buildDur();buildSnd();buildYTP();
+buildDur();buildSnd();buildYTP();renderModesList();renderCustomModeBtns();
 if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
 </script>
 </body>
